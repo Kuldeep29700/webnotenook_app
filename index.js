@@ -22,7 +22,8 @@ app.use(requestLogger)
 
 app.get('/api/notes', (request, response) => {
   Note.find({}).then(notes => {
-    response.json(notes)
+    response.json(notes.map(note => note.toJSON()))
+    console.log("hi")
   })
 })
 
